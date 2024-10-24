@@ -1,0 +1,21 @@
+name: Deploy
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: NodeJs install
+        uses: action/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Code style check
+        run: npm lint
+      - name: Run tests
+        run: npm test
+      - name: Deploy
+        run: echo "\033[32mDeploy to Server\033[0m"
+
