@@ -1,6 +1,5 @@
-name: Handle issues event
-on:
-  issue: [opened, edited]
+name: Handle issue event
+on: issue
 jobs:
   info:
     runs-on: ubuntu-latest
